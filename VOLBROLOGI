@@ -35,3 +35,6 @@ with open(output_file_path, "w", encoding="utf-8") as output_file:
     output_file.write("\n".join(lines))
 
 print(f"Результат записан в файл {output_file_path}.")
+
+#!/bin/bash
+#grep -o "Stop patrolling, successfull." "088820f4-060a-11ee-b33d-dca632e68beb/fail.log" | wc -l
