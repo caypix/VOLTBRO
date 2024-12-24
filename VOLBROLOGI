@@ -1,0 +1,37 @@
+import re
+
+# Пути к файлам
+log_file_path = r"C:\Users\Артём\Desktop\log.txt"  # Укажите путь к вашему лог-файлу
+output_file_path = r"C:\Users\Артём\Desktop\result3.txt"  # Укажите путь к выходному файлу
+
+# Читаем лог-файл
+with open(log_file_path, "r", encoding="utf-8") as log_file:
+    log_data = log_file.read()
+
+# Регулярное выражение для извлечения нужных записей
+pattern = r'\"(?P<marker_id>\d+)\": \"(?P<art_name>[^"]+)\s(?P<author>[^"]+)\"'
+matches = re.finditer(pattern, log_data)
+
+# Формируем строки для записи
+lines = []
+counter = 1  # Счётчик для корректной нумерации
+
+for match in matches:
+    marker_id = match.group("marker_id")
+    art_name = match.group("art_name")
+    author = match.group("author")
+
+    # Исключаем строки с "patrolling"
+    if art_name.lower() == "patrolling":
+        continue
+
+    # Формируем строку и увеличиваем счётчик
+    line = f"{counter}\tPainting {counter}\t{marker_id}\tКартина - {art_name}. Автор - {author}"
+    lines.append(line)
+    counter += 1
+
+# Записываем строки в файл
+with open(output_file_path, "w", encoding="utf-8") as output_file:
+    output_file.write("\n".join(lines))
+
+print(f"Результат записан в файл {output_file_path}.")
