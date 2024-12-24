@@ -1,0 +1,5 @@
+[rosout] [INFO] [2024-22-12] [15:50:19,553] Start aruco_searcher /aruco_searcher
+[rosout] [INFO] [2024-22-12] [15:51:19,553] Start patrolling, getting aruco_text
+[rosout] [INFO] [2024-22-12] [15:52:19,553] Patrol points: {"1": "Home", "2": "patrolling 1", "3": "patrolling 2"} [digitalWrite]
+[rosout] [INFO] [2024-22-12] [15:53:19,553] Patrol aruco text: {"4": "Мишки в сосновом бору Шишкин", "13": "Аист Пушкин", "7": "Алый закат Иванов"} [digitalWrite]
+[rosout] [INFO] [2024-22-12] [15:54:19,553] Stop patrolling, successfull.
